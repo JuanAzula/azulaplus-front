@@ -1,3 +1,5 @@
+import MovieCarousel from '@/components/MovieCarousel'
+import { getMovies } from '@/lib/data'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
@@ -10,15 +12,25 @@ type Props = {
     }
 }
 
-function GenrePage({ params: { id }, searchParams: { genre } }: Props) {
+async function GenrePage({ params: { id }, searchParams: { genre } }: Props) {
     console.log(id)
     if (!id) notFound
 
     const idToSearch = decodeURI(id)
-    // API call to get the Searched Movies
-    // API call to get the Popular Movies
+
+    // TODO: filter by genre in the Petition
+    const movies = await getMovies()
     return (
-        <div>You are filtering by the genre with ID {id} and name {genre}</div>
+        <div className='max-w-7xl mx-auto'>
+            {/* Azure OpenAi Suggestion */}
+            <div className='flex flex-col space-y-5 mt-32 xl:mt-42'>
+                <h1 className='text-5xl font-bold px-10'>
+                    Results for {genre}
+                </h1>
+
+                <MovieCarousel title={genre} movies={movies} isVertical />
+            </div>
+        </div>
     )
 }
 

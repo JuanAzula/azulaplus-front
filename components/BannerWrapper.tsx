@@ -3,11 +3,9 @@ import React from 'react'
 import CarouselBanner from './CarouselBanner'
 
 type Props = {
-    id: string
-    keywords: string
     movies: Movie[]
 }
-function BannerWrapper({ id, keywords, movies }: Props) {
+function BannerWrapper({ movies }: Props) {
     return (
         <CarouselBanner movies={movies} />
     )
