@@ -7,8 +7,10 @@ import GenreDropdown from './GenreDropdown'
 
 function Header() {
     return (
-        <header className='fixed w-full z-20 top-0 flex items-center 
-        justify-between p-5 bg-gradient-to-t from-gray-200/0 via-gray-900/25 to-gray-900'>
+        <header className='absolute w-full z-20 top-0 flex items-center 
+        justify-between p-5 
+        bg-gradient-to-t from-[#3B0A61]/0 via-white-900/35 to-gray-700
+        '>
             <Link href="/" className='mr-10'>
                 <Image
                     src="/images/azulaplus.png"
