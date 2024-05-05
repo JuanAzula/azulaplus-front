@@ -1,12 +1,15 @@
 "use client"
 
 import { deleteMovie, patchMovie, postMovie, uploadImage } from "@/lib/data";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Toaster, toast } from 'sonner';
 
 
 
 export const MovieForm = ({ currentMovie }: any) => {
+    const router = useRouter()
+
     const [file, setFile] = useState<File | null>(currentMovie?.movie?.file || null);
     const [title, setTitle] = useState(currentMovie?.title);
     const [description, setDescription] = useState(currentMovie?.movie?.description || '');
@@ -40,8 +43,8 @@ export const MovieForm = ({ currentMovie }: any) => {
                 return;
             }
             const result = await uploadImage(file);
+            console.log(result)
             setImg(result.url)
-            alert('File uploaded successfully');
             return result
         } catch (error) {
             console.error('Error uploading file:', error);
@@ -50,19 +53,20 @@ export const MovieForm = ({ currentMovie }: any) => {
 
     const handleDelete = async () => {
         await deleteMovie(currentMovie?.id)
+        router.push('/')
     }
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
-        if (currentMovie?.movie?.id) {
+        if (currentMovie?.id) {
             const movie = {
-                id: currentMovie?.movie?.id,
+                id: currentMovie?.id,
                 title,
                 description,
                 releaseYear: year,
                 poster_img: img,
                 genresName: genre,
-                authorEmail: currentMovie?.movie?.author?.email,
+                authorEmail: 'juanazula@example.com', //currentMovie?.author?.email,
                 score: parseFloat(score || '0')
             }
             await patchMovie(movie)
@@ -78,7 +82,7 @@ export const MovieForm = ({ currentMovie }: any) => {
                 releaseYear: year,
                 poster_img: img,
                 genresName: genre,
-                // authorEmail: user?.email,
+                authorEmail: 'juanazula@example.com',// user?.email,
                 score: parseFloat(score || '0')
             };
             await postMovie(movie)
