@@ -2,6 +2,7 @@ import { Movie } from '@/types/movie.data'
 import React from 'react'
 import MovieCard from './MovieCard'
 import { cn } from '@/lib/utils'
+import Link from 'next/link'
 type Props = {
     title?: string
     movies: Movie[]
@@ -27,19 +28,23 @@ function MovieCarousel({ title, movies, isVertical }: Props) {
                                 "flex flex-col space-y-5 mb-5 items-center lg:flex-row space-x-5"
                             )}
                         >
-                            <MovieCard movie={movie} />
-                            <div className="max-w-2xl">
-                                <p className="font-bold">
-                                    {movie.title} ({movie?.releaseYear})
-                                </p>
-                                <hr className="mb-3" />
-                                <p className="">{movie.description}</p>
-                            </div>
+                            <Link href={`/movie/${movie.id}`}>
+                                <MovieCard movie={movie} />
+                                <div className="max-w-2xl">
+                                    <p className="font-bold">
+                                        {movie.title} ({movie?.releaseYear})
+                                    </p>
+                                    <hr className="mb-3" />
+                                    <p className="">{movie.description}</p>
+                                </div>
+                            </Link>
                         </div>
                     )
                     ) : (
                         movies?.map((movie) => (
-                            <MovieCard key={movie.id} movie={movie} />
+                            <Link href={`/movie/${movie.id}`}>
+                                <MovieCard key={movie.id} movie={movie} />
+                            </Link>
                         ))
                     )}
             </div>

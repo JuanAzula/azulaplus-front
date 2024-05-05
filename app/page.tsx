@@ -2,14 +2,18 @@ import BannerWrapper from "@/components/BannerWrapper";
 import MovieCarousel from "@/components/MovieCarousel";
 import { Button } from "@/components/ui/button";
 import { getMovies, getSeries } from "@/lib/data";
+import { shuffle } from "lodash";
 import Image from "next/image";
 
 export default async function Home() {
   const movies = await getMovies();
   const series = await getSeries();
+  const moviesAndSeries = [...movies, ...series];
+  const shuffledMoviesAndSeries = shuffle(moviesAndSeries);
+
   return (
     <main className="">
-      <BannerWrapper movies={movies} />
+      <BannerWrapper movies={shuffledMoviesAndSeries} />
       <div className="flex flex-col space-y-2 4xl:-mt-48 ">
         <MovieCarousel movies={movies} title="Upcoming" />
         <MovieCarousel movies={movies} title="Trending Movies" />
