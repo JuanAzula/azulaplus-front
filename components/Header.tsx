@@ -10,7 +10,7 @@ function Header() {
     return (
         <header className='absolute w-full z-20 top-0 flex items-center 
         justify-between p-5 
-        bg-gradient-to-t from-[#3B0A61]/0 via-white-900/35 to-gray-700
+        bg-gradient-to-t from-[#3B0A61]/0 via-white-900/35 to-[#011f4b]
         '>
             <Link href="/" className='mr-10'>
                 <Image

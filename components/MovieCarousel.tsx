@@ -42,7 +42,7 @@ function MovieCarousel({ title, movies, isVertical }: Props) {
                     )
                     ) : (
                         movies?.map((movie) => (
-                            <Link href={`/movie/${movie.id}`}>
+                            <Link key={movie.id} href={`/movie/${movie.id}`}>
                                 <MovieCard key={movie.id} movie={movie} />
                             </Link>
                         ))

@@ -29,8 +29,8 @@ export const UserDropdown = () => {
                         Create Movie
                     </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
                 <DropdownMenuItem>Subscription</DropdownMenuItem>
+                <DropdownMenuItem>Logout</DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     )
