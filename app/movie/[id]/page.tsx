@@ -1,5 +1,6 @@
 import { MovieForm } from '@/components/MovieForm'
 import { getMovieById } from '@/lib/data'
+import Image from 'next/image'
 import React from 'react'
 
 type Props = {
@@ -17,12 +18,15 @@ async function MovieDetailPage({ params: { id }, searchParams: { title } }: Prop
     console.log(movie)
     return (
         <div>
-            <h1>{movie?.title}</h1>
-            <p>{movie?.description}</p>
-            <p>{movie?.releaseYear}</p>
-            <p>{movie?.genresName}</p>
-            <p>{movie?.score}</p>
-            <p>{movie?.authorEmail}</p>
+            <Image className='mx-auto mt-12' src={movie?.poster_img || ""} alt={movie?.title} width={200} height={200} />
+            <div className='flex flex-row space-x-2'>
+                <h1>{movie?.title}</h1>
+                <p>{movie?.description}</p>
+                <p> Date: {movie?.releaseYear} </p>
+                <p>{movie?.genresName}</p>
+                <p>{movie?.score}</p>
+                <p>{movie?.authorEmail}</p>
+                I</div>
             <MovieForm currentMovie={movie} />
         </div>
     )
