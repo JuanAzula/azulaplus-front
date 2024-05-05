@@ -9,14 +9,14 @@ function MovieCard({ movie }: { movie: Movie }) {
          hover:drop-shadow-lg'>
 
             <div className='absolute inset-0 bg-gradient-to-b from-gray-200/0
-             via-gray-900/10 to-gray-300 dark:to-[#2C3E4E]/80 z-10'>
+             via-gray-900/10 to-gray-300 dark:to-[#2a4d69]/80 z-10'>
 
             </div>
 
             <p className='absolute z-20 bottom-5 left-5'>{movie?.title}</p>
             <Image
                 className='w-fit lg:min-w-[400px] h-56 object-cover object-center
-                shadow-md shadow-[#2C3E4E] drop-shadow-xl rounded-sm'
+                shadow-md shadow-[#2a4d69] drop-shadow-xl rounded-sm'
                 src={movie?.poster_img || ""}
                 alt={movie?.title}
                 width={1920}

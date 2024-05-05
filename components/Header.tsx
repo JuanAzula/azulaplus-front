@@ -4,6 +4,7 @@ import React from 'react'
 import { ModeToggle } from './ThemeToggler'
 import SearchInput from './SearchInput'
 import GenreDropdown from './GenreDropdown'
+import { UserDropdown } from './UserDropdown'
 
 function Header() {
     return (
@@ -23,7 +24,7 @@ function Header() {
             <div className='flex space-x-2'>
                 <GenreDropdown />
                 <SearchInput />
-                <ModeToggle />
+                <UserDropdown />
             </div>
         </header>
     )

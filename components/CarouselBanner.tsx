@@ -6,11 +6,11 @@ import Autoplay from 'embla-carousel-autoplay'
 import Image from 'next/image'
 
 Autoplay.globalOptions = {
-    delay: 6000,
+    delay: 8000,
 }
 
 function CarouselBanner({ movies }: { movies: Movie[] }) {
-    const [emblaRef] = useEmblaCarousel({ loop: true, duration: 200 }, [Autoplay()])
+    const [emblaRef] = useEmblaCarousel({ loop: true, duration: 150 }, [Autoplay()])
 
     return (
         <div
@@ -45,7 +45,7 @@ function CarouselBanner({ movies }: { movies: Movie[] }) {
 
             <div
                 className="absolute inset-0 bg-gradient-to-b from-gray-200/0
-             via-gray-900/30 to-gray-300 dark:to-[#2C3E4E]">
+             via-gray-900/30 to-gray-300 dark:to-[#2a4d69]">
 
             </div>
         </div>
