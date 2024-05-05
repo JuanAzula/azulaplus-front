@@ -1,5 +1,5 @@
 import MovieCarousel from '@/components/MovieCarousel'
-import { getMovies } from '@/lib/data'
+import { getMovies, getResultsByGenre } from '@/lib/data'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
@@ -19,7 +19,9 @@ async function GenrePage({ params: { id }, searchParams: { genre } }: Props) {
     const idToSearch = decodeURI(id)
 
     // TODO: filter by genre in the Petition
-    const movies = await getMovies()
+    const response = await getResultsByGenre(genre)
+
+    const movies = response ? response.movies : []
     return (
         <div className='max-w-7xl mx-auto'>
             {/* Azure OpenAi Suggestion */}

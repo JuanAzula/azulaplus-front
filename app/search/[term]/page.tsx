@@ -1,5 +1,5 @@
 import MovieCarousel from '@/components/MovieCarousel'
-import { getMovies } from '@/lib/data'
+import { getMovies, getSearchedTerm } from '@/lib/data'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
@@ -16,7 +16,9 @@ async function SearchPage({ params: { term } }: Props) {
     const termToSearch = decodeURI(term)
 
     // TODO: filter by search terms in the Petition
-    const movies = await getMovies()
+    const response = await getSearchedTerm(termToSearch)
+    console.log('response', response)
+    const movies = response.movies
     return (
         <div className='max-w-7xl mx-auto'>
             <div className='flex flex-col space-y-4 mt-32 xl:mt-42'>
@@ -28,4 +30,4 @@ async function SearchPage({ params: { term } }: Props) {
     )
 }
 
-export default SearchPage
+export default SearchPage 
