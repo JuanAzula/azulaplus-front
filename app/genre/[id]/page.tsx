@@ -22,6 +22,8 @@ async function GenrePage({ params: { id }, searchParams: { genre } }: Props) {
     const response = await getResultsByGenre(genre)
 
     const movies = response ? response.movies : []
+    const series = response ? response.series : []
+    const results = [...movies, ...series]
     return (
         <div className='max-w-7xl mx-auto'>
             {/* Azure OpenAi Suggestion */}
