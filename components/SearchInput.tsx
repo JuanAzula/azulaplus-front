@@ -27,7 +27,7 @@ function SearchInput() {
         // ✅ This will be type-safe and validated.
         console.log(values)
 
-        router.push(`/search/${values.input}`)
+        router.push(`/search/${values.input}?title=${values.input}`)
         form.reset()
     }
     return (
