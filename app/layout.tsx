@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import "../styles/globals.css";
-import Header from "@/components/Header";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { Toaster } from "sonner";
-
+import React from 'react';
+import type { Metadata } from 'next';
+import '../styles/globals.css';
+import Header from '@/components/Header';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
-  title: "Azulaplus",
-  description: "Educational purposes",
+  title: 'Azulaplus',
+  description: 'Educational purposes',
 };
 
 export default function RootLayout({
@@ -22,7 +22,8 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange>
+          disableTransitionOnChange
+        >
           <Header />
           <Toaster />
           {children}

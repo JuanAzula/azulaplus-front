@@ -1,9 +1,8 @@
-import BannerWrapper from "@/components/BannerWrapper";
-import MovieCarousel from "@/components/MovieCarousel";
-import { Button } from "@/components/ui/button";
-import { getMovies, getSeries } from "@/lib/data";
-import { shuffle } from "lodash";
-import Image from "next/image";
+import React from 'react';
+import BannerWrapper from '@/components/BannerWrapper';
+import MovieCarousel from '@/components/MovieCarousel';
+import { getMovies, getSeries } from '@/lib/data';
+import { shuffle } from 'lodash';
 
 export default async function Home() {
   const movies = await getMovies();
