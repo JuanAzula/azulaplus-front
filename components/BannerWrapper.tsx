@@ -1,14 +1,14 @@
-import { Movie } from '@/types/movie.data'
-import React from 'react'
-import CarouselBanner from './CarouselBanner'
+import { Movie } from '@/types/movie.data';
+import React from 'react';
+import CarouselBanner from './CarouselBanner';
 
 type Props = {
-    movies: Movie[]
-}
+  movies: Movie[]
+};
 function BannerWrapper({ movies }: Props) {
-    return (
-        <CarouselBanner movies={movies} />
-    )
+  return (
+    <CarouselBanner movies={movies} />
+  );
 }
 
-export default BannerWrapper
+export default BannerWrapper;

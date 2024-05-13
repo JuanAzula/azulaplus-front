@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import '../styles/globals.css';
 import Header from '@/components/Header';
-import { ThemeProvider } from '@/components/ThemeProvider';
+import ThemeProvider from '@/components/ThemeProvider';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
