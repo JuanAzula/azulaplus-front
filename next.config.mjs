@@ -4,10 +4,6 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "image.tmdb.org",
-            },
-            {
-                protocol: "https",
                 hostname: "res.cloudinary.com"
             }
         ],
