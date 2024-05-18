@@ -16,11 +16,18 @@ jobs:
               with:
                 node-version: 18
             - name: Install dependencies
-              run: npm install
+              run: npm ci
             # - name: Lint
-            #   run: pnpm run lint
+            #   run: npm run lint
+            # - name: Test
+            #   run: npm run test
+            # - name: E2E tests
+            #   with:
+            #   command: npm run test:e2e
+            #   start: npm run start
+            #   wait-on: 'http://localhost:3000'
             # - name: Build
-            #   run: pnpm run build
+            #   run: npm run build
             # - name: Deploy
             #   uses: peaceiris/actions-gh-pages@v3
             #   with:
