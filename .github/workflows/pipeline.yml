@@ -9,6 +9,10 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
+            - name: Cancel Previous Redundant Builds
+              uses: styfle/cancel-workflow-action@0.9.1
+              with:
+                  access_token: ${{ github.token }}
             - uses: actions/checkout@v4
               with:
                 fetch-depth: 0
@@ -27,8 +31,8 @@ jobs:
             #   command: npm run test:e2e
             #   start: npm run start
             #   wait-on: 'http://localhost:3000'
-            # - name: Build
-            #   run: npm run build
+            - name: Build
+              run: npm run build
             # - name: Deploy
             #   uses: peaceiris/actions-gh-pages@v3
             #   with:
